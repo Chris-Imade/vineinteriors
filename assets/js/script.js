@@ -27,8 +27,28 @@
 
 
 
-  $(window).on("load", function () {
-    $(".preloader").delay(600).fadeOut("slow");
+  // Enhanced preloader functionality with fallback
+  $(document).ready(function() {
+    // Function to hide preloader
+    function hidePreloader() {
+      $(".preloader").fadeOut("slow", function() {
+        // Remove the preloader from the DOM after animation completes
+        $(this).remove();
+      });
+    }
+
+    // Hide preloader when page is fully loaded
+    $(window).on("load", function() {
+      // Hide after a short delay to ensure smooth transition
+      setTimeout(hidePreloader, 300);
+    });
+
+    // Fallback: If page takes too long to load, hide preloader anyway
+    setTimeout(function() {
+      if ($(".preloader").is(":visible")) {
+        hidePreloader();
+      }
+    }, 3000); // 3 second fallback
   });
 
 
