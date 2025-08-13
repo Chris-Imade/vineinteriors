@@ -57,25 +57,30 @@
 		<header class="section-header header-1 architronix-nav sticky-navbar header-bg-2 header-shadow">
 			<nav class="navbar navbar-expand-xl navbar-light nav-border hover-menu" aria-label="Offcanvas navbar large">
 				<div class="container-fluid max-width">
-					<div class="d-flex align-items-end">
-						<a class="navbar-brand py-0" href="index.html">
-							<span class="logo">
-								<img src="assets/images/logo.png" alt="logo" style="width: 50%;">
-							</span>
-						</a>
+					<div class="d-flex align-items-center justify-content-between w-100">
+						<div class="d-flex align-items-end">
+							<a class="navbar-brand py-0" href="index.html">
+								<span class="logo">
+									<img src="assets/images/logo.png" alt="logo" style="width: 50%;">
+								</span>
+							</a>
+							<a href="javascript:void(0)" class="toggler-icon text-decoration-none d-block d-xl-none ms-3"
+								data-bs-toggle="offcanvas" data-bs-target="#architronixNavbar" aria-controls="architronixNavbar"
+								aria-label="Toggle navigation">
+								<svg width="40" height="23" viewBox="0 0 40 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<line x1="1.5" y1="1.5" x2="38.5" y2="1.5" stroke="#253B2F" stroke-width="3"
+										stroke-linecap="round" />
+									<line x1="1.5" y1="11.5" x2="38.5" y2="11.5" stroke="#253B2F" stroke-width="3"
+										stroke-linecap="round" />
+									<line x1="21.5" y1="21.5" x2="38.5" y2="21.5" stroke="#253B2F" stroke-width="3"
+										stroke-linecap="round" />
+								</svg>
+							</a>
+						</div>
+						<div class="d-none d-xl-block">
+							<!-- Desktop navigation will be positioned here -->
+						</div>
 					</div>
-					<a href="javascript:void(0)" class="toggler-icon text-decoration-none d-block d-xl-none"
-						data-bs-toggle="offcanvas" data-bs-target="#architronixNavbar" aria-controls="architronixNavbar"
-						aria-label="Toggle navigation">
-						<svg width="40" height="23" viewBox="0 0 40 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<line x1="1.5" y1="1.5" x2="38.5" y2="1.5" stroke="#253B2F" stroke-width="3"
-								stroke-linecap="round" />
-							<line x1="1.5" y1="11.5" x2="38.5" y2="11.5" stroke="#253B2F" stroke-width="3"
-								stroke-linecap="round" />
-							<line x1="21.5" y1="21.5" x2="38.5" y2="21.5" stroke="#253B2F" stroke-width="3"
-								stroke-linecap="round" />
-						</svg>
-					</a>
 					<div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="architronixNavbar"
 						aria-labelledby="architronixNavbarLabel">
 						<div class="offcanvas-header">
