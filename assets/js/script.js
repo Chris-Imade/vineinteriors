@@ -455,71 +455,32 @@
 
 
 
-  // =========Leaflet map=========>>>>>
+  // =========Google Maps Embed with Parallax=========>>>>>
 
-
+  // Handle map direction button clicks for Google Maps embed
   if ($('#map').length > 0) {
-    var map = L.map('map').setView([35.76428892315803, -40.45770338684278], 3);
-    var locationsArray = [];
-  
-    function clickZoom(e) {
-      map.setView(e.target.getLatLng(), 16);
-    }
-  
-    $.each(architronixLocations, function(index, location) {
-      // Create Marker
-      var marker = L.marker(location.markerPoint, {
-        title: location.title,
-        className: "marker-usa"  // Class for the marker
-      }).addTo(map);
-  
-      // Bind Popup
-      marker.bindPopup(`<div class="card card-map architronix-map-card"><div class="card-body">
-                          <h5 class="card-title service-title">${location.title}</h5><p class="mb-0 fw-semibold">${location.subtitle}</p><p class="mb-0 contact-home">${location.address}</p>                          
-                        </div></div>`).on('click', clickZoom);
-  
-      // Store the location in the array
-      locationsArray.push({ marker: marker, location: location });
-    });
-  
-
-    
-     // Handle external link clicks
     $('.btn-map-direction').on('click', function(e) {
       e.preventDefault();
       var markerTitle = $(this).data('title');
       
-      // Find the marker in the array based on the title
-      var selectedMarker = locationsArray.find(function(item) {
-        return item.location.title === markerTitle;
-      });
-
-      // Open the popup for the selected marker
-      if (selectedMarker) {
-        selectedMarker.marker.openPopup();
-        // Set the zoom level to 16
-        map.setView(selectedMarker.marker.getLatLng(), 12);
-      }
-    });
-  
-    L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', {
-      maxZoom: 26,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-  
-    // Outside click event
-    $(document).on('click', function(e) {
-      var mapContainer = $('#map');
-      var isClickInsideMap = mapContainer.has(e.target).length > 0 || mapContainer.is(e.target); 
-     
+      // Scroll to map section smoothly
+      $('html, body').animate({
+        scrollTop: $('#map').offset().top - 100
+      }, 800);
+      
+      // Optional: Show a tooltip or highlight effect
+      var $mapContainer = $('#map');
+      $mapContainer.addClass('map-highlight');
+      setTimeout(function() {
+        $mapContainer.removeClass('map-highlight');
+      }, 2000);
     });
   }
-  // =========Leaflet map=========>>>>>
+  // =========Google Maps Embed with Parallax=========>>>>>
 
 
 
   // ========= Scrool stroke-text on Mouse-Wheel=========>>>>>
-
   if ($('.scroll-move').length > 0){
     const classNames = [];
     $(".scroll-move").each(function (index, item) {
